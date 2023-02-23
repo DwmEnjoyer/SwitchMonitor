@@ -1,8 +1,8 @@
 #!/bin/sh
 
 read -p 'Elige una distribución(arch/gentoo/ubuntu):' distro
-read -p 'Elige una shell(bash/zshrc):' shell
-shellfile="~/${shell}rc"
+read -p 'Elige una shell(bash/zsh):' shell
+shellfile="${HOME}/.${shell}rc"
 if [ $distro == 'arch' ]
 then
   sudo pacman -S go
@@ -17,7 +17,7 @@ else
   exit 1
 fi
 go install github.com/charmbracelet/gum@latest
-echo "export PATH=$PATH:/home/${USER}/go/bin" >> shellfile
+echo "export PATH=\$PATH:/home/${USER}/go/bin" >> $shellfile
 chmod +x switchmonitor.sh
 sudo cp switchmonitor.sh /usr/local/bin
 
