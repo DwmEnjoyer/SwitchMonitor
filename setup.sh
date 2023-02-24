@@ -1,15 +1,17 @@
 #!/bin/sh
 
-read -p 'Elige una distribución(arch/gentoo/ubuntu):' distro
-read -p 'Elige una shell(bash/zsh):' shell
+printf 'Elige una distribución(arch/gentoo/ubuntu): '
+read -r distro
+printf 'Elige una shell(bash/zsh): '
+read -r shell
 shellfile="${HOME}/.${shell}rc"
-if [ $distro == 'arch' ]
+if [ $distro = 'arch' ]
 then
   sudo pacman -S go
-elif [ $distro == 'ubuntu' ]
+elif [ $distro = 'ubuntu' ]
 then
   sudo apt install golang
-elif [ $distro == 'gentoo' ]
+elif [ $distro = 'gentoo' ]
 then
   sudo emerge --ask dev-lang/go
 else

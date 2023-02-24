@@ -38,25 +38,25 @@ then
       ctrl_c
 fi
 
-if [ $opcion == "Main" ]
+if [ $opcion = "Main" ]
 then
-	if [ $resolucion == "auto" ]
+	if [ $resolucion = "auto" ]
 	then
 		xrandr --output $externo --off --output $interno --auto
 	else
 		xrandr --output $externo --off --output $interno --mode $resolucion
 	fi
-elif [ $opcion == "Secondary" ]
+elif [ $opcion = "Secondary" ]
 then
-	if [ $resolucion == "auto" ]
+	if [ $resolucion = "auto" ]
         then
 	       	xrandr --output $interno --off --output $externo --auto
 	else
 	       	xrandr --output $interno --off --output $externo --mode $resolucion
 	fi
-elif [ $opcion == "Both" ]
+elif [ $opcion = "Both" ]
 then
-	if [ $resolucion == "auto" ]
+	if [ $resolucion = "auto" ]
         then
 	       	xrandr --output $externo --auto --same-as $interno --auto
 	else
